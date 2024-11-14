@@ -9,5 +9,5 @@ import org.springframework.web.bind.annotation.PathVariable;
 public interface PokemonRestClient {
 
     @GetMapping(value = "pokemon/{name}")
-    PokemonResponseDto getPokemon(@PathVariable String name);
+    PokemonResponseDto getPokemonDetails(@PathVariable String name);
 }

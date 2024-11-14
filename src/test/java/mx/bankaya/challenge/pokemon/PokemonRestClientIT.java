@@ -13,7 +13,7 @@ public class PokemonRestClientIT extends BaseConfigIT{
 
     @Test
     public void testGetPokemon() {
-        var response = pokemonRestClient.getPokemon("ditto");
+        var response = pokemonRestClient.getPokemonDetails("ditto");
 
         assertNotNull(response);
         assertEquals("ditto", response.name());
