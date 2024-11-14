@@ -3,7 +3,7 @@
            targetNamespace="http://bankaya.mx/challenge"
            elementFormDefault="qualified">
 
-    <xs:element name="GetPokemonRequest">
+    <xs:element name="GetPokemonIdRequest">
         <xs:complexType>
             <xs:sequence>
                 <xs:element name="name" type="xs:string"/>
@@ -11,15 +11,90 @@
         </xs:complexType>
     </xs:element>
 
-    <xs:element name="GetPokemonResponse">
+    <xs:element name="GetPokemonNameRequest">
         <xs:complexType>
             <xs:sequence>
                 <xs:element name="name" type="xs:string"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+
+    <xs:element name="GetPokemonExperienceRequest">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="name" type="xs:string"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+
+    <xs:element name="GetPokemonAbilitiesRequest">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="name" type="xs:string"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+
+    <xs:element name="GetPokemonHeldItemsRequest">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="name" type="xs:string"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+
+    <xs:element name="GetPokemonLocationAreaEncountersRequest">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="name" type="xs:string"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+
+    <xs:element name="GetPokemonIdResponse">
+        <xs:complexType>
+            <xs:sequence>
                 <xs:element name="id" type="xs:int"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+
+    <xs:element name="GetPokemonNameResponse">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="name" type="xs:string"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+
+    <xs:element name="GetPokemonAbilitiesResponse">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="abilities" type="tns:AbilityList" maxOccurs="unbounded"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+
+    <xs:element name="GetPokemonExperienceResponse">
+        <xs:complexType>
+            <xs:sequence>
                 <xs:element name="baseExperience" type="xs:int"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+
+    <xs:element name="GetPokemonHeldItemsResponse">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="heldItems" type="tns:HeldItemList" maxOccurs="unbounded"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+
+    <xs:element name="GetPokemonLocationAreaEncountersResponse">
+        <xs:complexType>
+            <xs:sequence>
                 <xs:element name="locationAreaEncounters" type="xs:string"/>
-                <xs:element name="abilities" type="tns:AbilityList"/>
-                <xs:element name="heldItems" type="tns:HeldItemList"/>
             </xs:sequence>
         </xs:complexType>
     </xs:element>
@@ -37,7 +112,7 @@
     <xs:complexType name="HeldItemList">
         <xs:sequence>
             <xs:element name="item" type="tns:Item"/>
-            <xs:element name="versionDetails" type="tns:VersionDetails"/>
+            <xs:element name="versionDetails" type="tns:VersionDetails" maxOccurs="unbounded"/>
         </xs:sequence>
     </xs:complexType>
 
