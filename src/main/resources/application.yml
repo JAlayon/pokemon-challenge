@@ -1,0 +1,7 @@
+spring:
+  application:
+    name: bankaya-challenge
+
+
+pokemon:
+  url: ${POKEMON_URL:https://pokeapi.co/api/v2/}
