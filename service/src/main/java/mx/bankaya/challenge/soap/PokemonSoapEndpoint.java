@@ -17,7 +17,7 @@ public class PokemonSoapEndpoint {
     public PokemonSoapEndpoint(PokemonService pokemonService) {
         this.pokemonService = pokemonService;
     }
-
+    
     @PayloadRoot(namespace = NAMESPACE_URI, localPart = "GetPokemonIdRequest")
     @ResponsePayload
     public GetPokemonIdResponse getPokemonId(@RequestPayload GetPokemonIdRequest request) {

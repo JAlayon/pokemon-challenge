@@ -17,7 +17,7 @@ import static org.mockito.Mockito.verify;
 import static org.mockito.Mockito.when;
 
 @ExtendWith(MockitoExtension.class)
-public class PokemonServiceTest {
+class PokemonServiceTest {
 
     @Mock
     private PokemonRestClient pokemonRestClient;
@@ -143,7 +143,7 @@ public class PokemonServiceTest {
                 .heldItems().size());
         var versionDetails = response.getHeldItems().getFirst().getVersionDetails().getFirst();
         assertNotNull(versionDetails.getVersion());
-        assertThat(versionDetails.getRarity()).isGreaterThan(0);
+        assertThat(versionDetails.getRarity()).isPositive();
         verify(pokemonRestClient).getPokemonDetails(pokemonName);
     }
 

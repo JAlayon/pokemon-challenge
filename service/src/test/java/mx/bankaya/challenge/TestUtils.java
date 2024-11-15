@@ -28,7 +28,7 @@ public class TestUtils {
             abilities.add(new AbilityResponseDto(
                     new ItemDto("hab-" + (i + 1), "http://example.com/ability/" + (i + 1)),
                     false,
-                    new Random().nextInt(10)
+                    1 + new Random().nextInt(10)
             ));
         }
 
@@ -41,7 +41,7 @@ public class TestUtils {
             items.add(new HeldItemDto(
                     new ItemDto("item-" + (i + 1), "http://example.com/ability/" + (i + 1)),
                     List.of(new VersionDetailDto(
-                            new Random().nextInt(10),
+                            1 + new Random().nextInt(10),
                             new ItemDto("version-" + (i + 1), "http://example.com/version/" + (i + 1))
                     ))
             ));

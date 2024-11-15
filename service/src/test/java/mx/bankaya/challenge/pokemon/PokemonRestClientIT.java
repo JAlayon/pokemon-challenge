@@ -7,13 +7,13 @@ import org.springframework.beans.factory.annotation.Autowired;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertNotNull;
 
-public class PokemonRestClientIT extends BaseConfigIT {
+class PokemonRestClientIT extends BaseConfigIT {
 
     @Autowired
     private PokemonRestClient pokemonRestClient;
 
     @Test
-    public void testGetPokemon() {
+    void testGetPokemon() {
         var response = pokemonRestClient.getPokemonDetails("ditto");
 
         assertNotNull(response);

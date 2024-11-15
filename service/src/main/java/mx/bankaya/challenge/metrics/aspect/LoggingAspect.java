@@ -4,7 +4,6 @@ import jakarta.servlet.http.HttpServletRequest;
 import mx.bankaya.challenge.event.EventLogService;
 import mx.bankaya.challenge.event.enums.EventLogType;
 import mx.bankaya.challenge.metrics.LogExecutionTime;
-import mx.bankaya.challenge.soap.service.PokemonService;
 import org.aspectj.lang.ProceedingJoinPoint;
 import org.aspectj.lang.annotation.Around;
 import org.aspectj.lang.annotation.Aspect;
