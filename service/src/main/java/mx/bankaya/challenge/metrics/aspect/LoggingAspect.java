@@ -4,14 +4,19 @@ import jakarta.servlet.http.HttpServletRequest;
 import mx.bankaya.challenge.event.EventLogService;
 import mx.bankaya.challenge.event.enums.EventLogType;
 import mx.bankaya.challenge.metrics.LogExecutionTime;
+import mx.bankaya.challenge.soap.service.PokemonService;
 import org.aspectj.lang.ProceedingJoinPoint;
 import org.aspectj.lang.annotation.Around;
 import org.aspectj.lang.annotation.Aspect;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Component;
 
 @Aspect
 @Component
 public class LoggingAspect {
+    private static final Logger logger = LoggerFactory.getLogger(LoggingAspect.class);
+
     private final EventLogService eventLogService;
     private final HttpServletRequest httpServletRequest;
 
@@ -35,9 +40,13 @@ public class LoggingAspect {
 
     private void saveSafelyLog(String clientIpAddress, EventLogType operation, long duration) {
         try {
+            logger.info("process=saveSafelyLog, status=started, ipAddress={}, operation={}, executionTime={}",
+                    clientIpAddress, operation, duration);
             eventLogService.saveRequest(clientIpAddress, operation, duration);
+            logger.info("process=saveSafelyLog, status=finished, ipAddress={}, operation={}, executionTime={}",
+                    clientIpAddress, operation, duration);
         } catch (Exception e) {
-            e.printStackTrace();
+            logger.error("process=saveSafelyLog, status=error, msg={}", e.getMessage(), e);
         }
     }
 
