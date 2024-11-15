@@ -9,6 +9,7 @@ for easy setup and execution.
 - Docker and Docker Compose installed on your machine.
     - [Install Docker](https://docs.docker.com/get-docker/)
     - [Install Docker Compose](https://docs.docker.com/compose/install/)
+    - [Install SoapUi](https://www.soapui.org/downloads/soapui/)
 
 ## Getting Started
 
@@ -32,7 +33,7 @@ This project uses Docker Compose to set up the following services:
 
 ### 3. Build and Run the services
 
-a. Build and run the Docker containers:
+#### a. Build and run the Docker containers:
 
 Run the following command to build and start all services:
 
@@ -41,7 +42,7 @@ docker-compose up --build
 ```
 
 
-b. Verify services are running:
+#### b. Verify services are running:
 
 Once the containers are up and running, you can access:
 
@@ -55,7 +56,13 @@ Once the containers are up and running, you can access:
 
 
 * Pokemon Service: The service will be available at http://localhost:8080.
+* Check if is healthy at: http://localhost:8080/actuator/health
 
+
+####  c. Test service operations
+
+To test our service operations, we can use the soap-ui project under `soapui` folder.
+Just import the xml file in soapUI application to start testing.
 
 
 ### 3. Accessing Database
@@ -82,5 +89,5 @@ You can follow up this link: [SonarQube Managing Tokens](https://docs.sonarsourc
 To perform sonar analysis, we run this command:
 
 ```bash
-mvn clean verify sonar:sonar -Dsonar.login=<your-token>
+./mvnw clean verify sonar:sonar -Dsonar.login=<your-token>
 ```
