@@ -13,6 +13,11 @@ spring:
       hibernate:
         format_sql: true
         dialect: org.hibernate.dialect.PostgreSQLDialect
+  cache:
+    type: caffeine
+    cache-names: pokemon
+    caffeine:
+      spec: expireAfterAccess=10m # 10 minutes
 
 server:
   port: 8080

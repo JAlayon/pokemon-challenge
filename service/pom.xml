@@ -77,6 +77,17 @@
             <version>0.0.1-SNAPSHOT</version>
         </dependency>
 
+        <!-- Cache -->
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-cache</artifactId>
+        </dependency>
+
+        <dependency>
+            <groupId>com.github.ben-manes.caffeine</groupId>
+            <artifactId>caffeine</artifactId>
+        </dependency>
+
         <!-- Rest integration -->
         <dependency>
             <groupId>org.springframework.cloud</groupId>

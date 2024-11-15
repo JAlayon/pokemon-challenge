@@ -8,9 +8,12 @@ import mx.bankaya.challenge.pokemon.dto.PokemonResponseDto;
 import mx.bankaya.challenge.soap.mapper.PokemonMapper;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.cache.annotation.CacheConfig;
+import org.springframework.cache.annotation.Cacheable;
 import org.springframework.stereotype.Service;
 
 @Service
+@CacheConfig(cacheNames = "pokemon")
 public class PokemonService {
 
     private static final Logger logger = LoggerFactory.getLogger(PokemonService.class);
@@ -25,6 +28,7 @@ public class PokemonService {
     }
 
     @LogExecutionTime(operation = EventLogType.GET_ID)
+    @Cacheable(unless = "#result == null")
     public GetPokemonIdResponse getPokemonId(final String name) {
         logger.info("process=getPokemonId, status=started, name={}", name);
         var pokemonDetailsResponse = getPokemonDetailsResponse(name);
@@ -35,6 +39,7 @@ public class PokemonService {
     }
 
     @LogExecutionTime(operation = EventLogType.GET_NAME)
+    @Cacheable(unless = "#result == null")
     public GetPokemonNameResponse getPokemonName(final String name) {
         logger.info("process=getPokemonName, status=started, name={}", name);
         var pokemonDetailsResponse = getPokemonDetailsResponse(name);
@@ -45,6 +50,7 @@ public class PokemonService {
     }
 
     @LogExecutionTime(operation = EventLogType.GET_BASE_EXPERIENCE)
+    @Cacheable(unless = "#result == null")
     public GetPokemonExperienceResponse getPokemonBaseExperience(final String name) {
         var pokemonDetailsResponse = getPokemonDetailsResponse(name);
         logger.info("process=getPokemonBaseExperience, status=started, name={}", name);
@@ -55,6 +61,7 @@ public class PokemonService {
     }
 
     @LogExecutionTime(operation = EventLogType.GET_LOCATION_AREA_ENCOUNTERS)
+    @Cacheable(unless = "#result == null")
     public GetPokemonLocationAreaEncountersResponse getPokemonLocationArea(final String name) {
         logger.info("process=getPokemonLocationArea, status=started, name={}", name);
         var pokemonDetailsResponse = getPokemonDetailsResponse(name);
@@ -65,6 +72,7 @@ public class PokemonService {
     }
 
     @LogExecutionTime(operation = EventLogType.GET_ABILITIES)
+    @Cacheable(unless = "#result == null")
     public GetPokemonAbilitiesResponse getPokemonAbilities(final String name) {
         logger.info("process=getPokemonAbilities, status=started, name={}", name);
         var pokemonDetailsResponse = getPokemonDetailsResponse(name);
@@ -76,6 +84,7 @@ public class PokemonService {
     }
 
     @LogExecutionTime(operation = EventLogType.GET_HELD_ITEMS)
+    @Cacheable(unless = "#result == null")
     public GetPokemonHeldItemsResponse getPokemonHeldItems(final String name) {
         logger.info("process=getPokemonHeldItems, status=started, name={}", name);
         var pokemonDetailsResponse = getPokemonDetailsResponse(name);
