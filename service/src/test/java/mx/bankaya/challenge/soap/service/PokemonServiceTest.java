@@ -33,7 +33,7 @@ class PokemonServiceTest {
     void getPokemonId_success() {
         // given
         var pokemonName = "ditto";
-        var pokemonResponse = TestUtils.buildPokemonResponseDto("ditto",
+        var pokemonResponse = TestUtils.buildPokemonResponseDto(pokemonName,
                 100, 1, 1);
 
         when(pokemonRestClient.getPokemonDetails(pokemonName)).thenReturn(pokemonResponse);
@@ -51,7 +51,7 @@ class PokemonServiceTest {
     void getPokemonName_success() {
         // given
         var pokemonName = "ditto";
-        var pokemonResponse = TestUtils.buildPokemonResponseDto("ditto",
+        var pokemonResponse = TestUtils.buildPokemonResponseDto(pokemonName,
                 100, 1, 1);
 
         when(pokemonRestClient.getPokemonDetails(pokemonName)).thenReturn(pokemonResponse);
@@ -69,7 +69,7 @@ class PokemonServiceTest {
     void getPokemonBaseExperience_success() {
         // given
         var pokemonName = "ditto";
-        var pokemonResponse = TestUtils.buildPokemonResponseDto("ditto",
+        var pokemonResponse = TestUtils.buildPokemonResponseDto(pokemonName,
                 100, 1, 1);
 
         when(pokemonRestClient.getPokemonDetails(pokemonName)).thenReturn(pokemonResponse);
@@ -87,7 +87,7 @@ class PokemonServiceTest {
     void getPokemonLocationArea_success() {
         // given
         var pokemonName = "ditto";
-        var pokemonResponse = TestUtils.buildPokemonResponseDto("ditto",
+        var pokemonResponse = TestUtils.buildPokemonResponseDto(pokemonName,
                 100, 1, 1);
 
         when(pokemonRestClient.getPokemonDetails(pokemonName)).thenReturn(pokemonResponse);
@@ -106,7 +106,7 @@ class PokemonServiceTest {
     void getPokemonAbilities_success() {
         // given
         var pokemonName = "ditto";
-        var pokemonResponse = TestUtils.buildPokemonResponseDto("ditto",
+        var pokemonResponse = TestUtils.buildPokemonResponseDto(pokemonName,
                 100, 10, 1);
 
         when(pokemonRestClient.getPokemonDetails(pokemonName)).thenReturn(pokemonResponse);
@@ -116,9 +116,9 @@ class PokemonServiceTest {
 
         // then
         assertThat(response).isNotNull();
-        assertThat(response.getAbilities().size()).isEqualTo(pokemonResponse.abilities().size());
+        assertThat(response.getAbilities()).hasSameSizeAs(pokemonResponse.abilities());
         assertNotNull(response.getAbilities().getFirst().getAbility());
-        assertThat(response.getAbilities().getFirst().getSlot()).isGreaterThan(0);
+        assertThat(response.getAbilities().getFirst().getSlot()).isPositive();
         assertFalse(response.getAbilities().getFirst().isIsHidden());
         assertNotNull(response.getAbilities().getFirst().getAbility().getName());
         assertNotNull(response.getAbilities().getFirst().getAbility().getUrl());
@@ -129,7 +129,7 @@ class PokemonServiceTest {
     void getPokemonHeldItems_success() {
         // given
         var pokemonName = "ditto";
-        var pokemonResponse = TestUtils.buildPokemonResponseDto("ditto",
+        var pokemonResponse = TestUtils.buildPokemonResponseDto(pokemonName,
                 100, 1, 10);
 
         when(pokemonRestClient.getPokemonDetails(pokemonName)).thenReturn(pokemonResponse);
@@ -139,8 +139,7 @@ class PokemonServiceTest {
 
         // then
         assertThat(response).isNotNull();
-        assertThat(response.getHeldItems().size()).isEqualTo(pokemonResponse
-                .heldItems().size());
+        assertThat(response.getHeldItems()).hasSameSizeAs(pokemonResponse.heldItems());
         var versionDetails = response.getHeldItems().getFirst().getVersionDetails().getFirst();
         assertNotNull(versionDetails.getVersion());
         assertThat(versionDetails.getRarity()).isPositive();

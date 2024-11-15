@@ -10,7 +10,7 @@ COPY common ./common
 COPY service ./service
 
 # Build the application
-RUN mvn clean package -DskipTests
+RUN mvn clean verify -DskipTests
 
 # Create a new image for the runtime
 FROM openjdk:21-jdk-slim

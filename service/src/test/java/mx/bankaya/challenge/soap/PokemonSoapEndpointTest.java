@@ -93,7 +93,7 @@ class PokemonSoapEndpointTest {
 
         // Then
         assertThat(response).isNotNull();
-        assertThat(response.getAbilities().size()).isEqualTo(mockResponse.getAbilities().size());
+        assertThat(response.getAbilities()).hasSameSizeAs(mockResponse.getAbilities());
         verify(pokemonService).getPokemonAbilities(request.getName());
     }
 
@@ -112,7 +112,7 @@ class PokemonSoapEndpointTest {
 
         // Then
         assertThat(response).isNotNull();
-        assertThat(response.getHeldItems().size()).isEqualTo(mockResponse.getHeldItems().size());
+        assertThat(response.getHeldItems()).hasSameSizeAs(mockResponse.getHeldItems());
         verify(pokemonService).getPokemonHeldItems(request.getName());
     }
 
