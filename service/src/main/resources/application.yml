@@ -15,7 +15,7 @@ spring:
         dialect: org.hibernate.dialect.PostgreSQLDialect
 
 server:
-  port: 8081
+  port: 8080
 
 pokemon:
   url: ${POKEMON_URL:https://pokeapi.co/api/v2/}
