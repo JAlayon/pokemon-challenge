@@ -1,9 +1,9 @@
 package mx.bankaya.challenge.soap.mapper;
 
-import com.bankaya.challenge.AbilityList;
-import com.bankaya.challenge.HeldItemList;
-import com.bankaya.challenge.Item;
-import com.bankaya.challenge.VersionDetails;
+import mx.bankaya.challenge.AbilityList;
+import mx.bankaya.challenge.HeldItemList;
+import mx.bankaya.challenge.Item;
+import mx.bankaya.challenge.VersionDetails;
 import mx.bankaya.challenge.pokemon.dto.AbilityResponseDto;
 import mx.bankaya.challenge.pokemon.dto.HeldItemDto;
 import mx.bankaya.challenge.pokemon.dto.ItemDto;

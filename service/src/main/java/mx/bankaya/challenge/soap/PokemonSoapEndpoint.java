@@ -1,6 +1,6 @@
 package mx.bankaya.challenge.soap;
 
-import com.bankaya.challenge.*;
+import mx.bankaya.challenge.*;
 import mx.bankaya.challenge.soap.service.PokemonService;
 import org.springframework.ws.server.endpoint.annotation.Endpoint;
 import org.springframework.ws.server.endpoint.annotation.PayloadRoot;

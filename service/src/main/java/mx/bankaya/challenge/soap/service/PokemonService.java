@@ -1,6 +1,6 @@
 package mx.bankaya.challenge.soap.service;
 
-import com.bankaya.challenge.*;
+import mx.bankaya.challenge.*;
 import mx.bankaya.challenge.event.enums.EventLogType;
 import mx.bankaya.challenge.metrics.LogExecutionTime;
 import mx.bankaya.challenge.pokemon.PokemonRestClient;

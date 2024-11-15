@@ -7,9 +7,12 @@ import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.InjectMocks;
 import org.mockito.Mock;
+import org.mockito.Spy;
 import org.mockito.junit.jupiter.MockitoExtension;
 
+
 import static org.assertj.core.api.Assertions.assertThat;
+import static org.junit.jupiter.api.Assertions.*;
 import static org.mockito.Mockito.verify;
 import static org.mockito.Mockito.when;
 
@@ -19,7 +22,7 @@ public class PokemonServiceTest {
     @Mock
     private PokemonRestClient pokemonRestClient;
 
-    @Mock
+    @Spy
     private PokemonMapper pokemonMapper;
 
     @InjectMocks
@@ -114,6 +117,11 @@ public class PokemonServiceTest {
         // then
         assertThat(response).isNotNull();
         assertThat(response.getAbilities().size()).isEqualTo(pokemonResponse.abilities().size());
+        assertNotNull(response.getAbilities().getFirst().getAbility());
+        assertThat(response.getAbilities().getFirst().getSlot()).isGreaterThan(0);
+        assertFalse(response.getAbilities().getFirst().isIsHidden());
+        assertNotNull(response.getAbilities().getFirst().getAbility().getName());
+        assertNotNull(response.getAbilities().getFirst().getAbility().getUrl());
         verify(pokemonRestClient).getPokemonDetails(pokemonName);
     }
 
@@ -133,6 +141,9 @@ public class PokemonServiceTest {
         assertThat(response).isNotNull();
         assertThat(response.getHeldItems().size()).isEqualTo(pokemonResponse
                 .heldItems().size());
+        var versionDetails = response.getHeldItems().getFirst().getVersionDetails().getFirst();
+        assertNotNull(versionDetails.getVersion());
+        assertThat(versionDetails.getRarity()).isGreaterThan(0);
         verify(pokemonRestClient).getPokemonDetails(pokemonName);
     }
 
