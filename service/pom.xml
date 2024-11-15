@@ -22,6 +22,7 @@
         </sonar.coverage.jacoco.xmlReportPaths>
         <sonar.java.coveragePlugin>jacoco</sonar.java.coveragePlugin>
         <sonar.language>java</sonar.language>
+        <sonar.coverage.exclusions>**/BankayaChallengeApplication.*/, **/metrics/**, **/config/**, **/entity/**</sonar.coverage.exclusions>
     </properties>
 
     <dependencyManagement>

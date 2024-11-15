@@ -116,9 +116,9 @@ class PokemonServiceTest {
 
         // then
         assertThat(response).isNotNull();
-        assertThat(response.getAbilities().size()).isEqualTo(pokemonResponse.abilities().size());
+        assertThat(response.getAbilities()).hasSameSizeAs(pokemonResponse.abilities());
         assertNotNull(response.getAbilities().getFirst().getAbility());
-        assertThat(response.getAbilities().getFirst().getSlot()).isGreaterThan(0);
+        assertThat(response.getAbilities().getFirst().getSlot()).isPositive();
         assertFalse(response.getAbilities().getFirst().isIsHidden());
         assertNotNull(response.getAbilities().getFirst().getAbility().getName());
         assertNotNull(response.getAbilities().getFirst().getAbility().getUrl());
@@ -139,8 +139,7 @@ class PokemonServiceTest {
 
         // then
         assertThat(response).isNotNull();
-        assertThat(response.getHeldItems().size()).isEqualTo(pokemonResponse
-                .heldItems().size());
+        assertThat(response.getHeldItems()).hasSameSizeAs(pokemonResponse.heldItems());
         var versionDetails = response.getHeldItems().getFirst().getVersionDetails().getFirst();
         assertNotNull(versionDetails.getVersion());
         assertThat(versionDetails.getRarity()).isPositive();
