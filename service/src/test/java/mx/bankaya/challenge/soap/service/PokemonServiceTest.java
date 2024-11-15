@@ -33,7 +33,7 @@ class PokemonServiceTest {
     void getPokemonId_success() {
         // given
         var pokemonName = "ditto";
-        var pokemonResponse = TestUtils.buildPokemonResponseDto("ditto",
+        var pokemonResponse = TestUtils.buildPokemonResponseDto(pokemonName,
                 100, 1, 1);
 
         when(pokemonRestClient.getPokemonDetails(pokemonName)).thenReturn(pokemonResponse);
@@ -51,7 +51,7 @@ class PokemonServiceTest {
     void getPokemonName_success() {
         // given
         var pokemonName = "ditto";
-        var pokemonResponse = TestUtils.buildPokemonResponseDto("ditto",
+        var pokemonResponse = TestUtils.buildPokemonResponseDto(pokemonName,
                 100, 1, 1);
 
         when(pokemonRestClient.getPokemonDetails(pokemonName)).thenReturn(pokemonResponse);
@@ -69,7 +69,7 @@ class PokemonServiceTest {
     void getPokemonBaseExperience_success() {
         // given
         var pokemonName = "ditto";
-        var pokemonResponse = TestUtils.buildPokemonResponseDto("ditto",
+        var pokemonResponse = TestUtils.buildPokemonResponseDto(pokemonName,
                 100, 1, 1);
 
         when(pokemonRestClient.getPokemonDetails(pokemonName)).thenReturn(pokemonResponse);
@@ -87,7 +87,7 @@ class PokemonServiceTest {
     void getPokemonLocationArea_success() {
         // given
         var pokemonName = "ditto";
-        var pokemonResponse = TestUtils.buildPokemonResponseDto("ditto",
+        var pokemonResponse = TestUtils.buildPokemonResponseDto(pokemonName,
                 100, 1, 1);
 
         when(pokemonRestClient.getPokemonDetails(pokemonName)).thenReturn(pokemonResponse);
@@ -106,7 +106,7 @@ class PokemonServiceTest {
     void getPokemonAbilities_success() {
         // given
         var pokemonName = "ditto";
-        var pokemonResponse = TestUtils.buildPokemonResponseDto("ditto",
+        var pokemonResponse = TestUtils.buildPokemonResponseDto(pokemonName,
                 100, 10, 1);
 
         when(pokemonRestClient.getPokemonDetails(pokemonName)).thenReturn(pokemonResponse);
@@ -129,7 +129,7 @@ class PokemonServiceTest {
     void getPokemonHeldItems_success() {
         // given
         var pokemonName = "ditto";
-        var pokemonResponse = TestUtils.buildPokemonResponseDto("ditto",
+        var pokemonResponse = TestUtils.buildPokemonResponseDto(pokemonName,
                 100, 1, 10);
 
         when(pokemonRestClient.getPokemonDetails(pokemonName)).thenReturn(pokemonResponse);

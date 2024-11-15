@@ -1,4 +1,4 @@
-package mx.bankaya.challenge.cache;
+package mx.bankaya.challenge.config.cache;
 
 import org.springframework.cache.annotation.CachingConfigurer;
 import org.springframework.cache.annotation.EnableCaching;
@@ -9,9 +9,10 @@ import org.springframework.context.annotation.Configuration;
 
 @Configuration
 @EnableCaching
-public class CacheConfiguration implements CachingConfigurer {
+public class CacheConfig implements CachingConfigurer {
 
     @Bean
+    @Override
     public KeyGenerator keyGenerator() {
         return (target, method, params) -> new SimpleKey(target.getClass().getSimpleName(), method.getName(), params);
     }
