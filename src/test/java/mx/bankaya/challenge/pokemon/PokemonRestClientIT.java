@@ -1,12 +1,13 @@
 package mx.bankaya.challenge.pokemon;
 
+import mx.bankaya.challenge.BaseConfigIT;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertNotNull;
 
-public class PokemonRestClientIT extends BaseConfigIT{
+public class PokemonRestClientIT extends BaseConfigIT {
 
     @Autowired
     private PokemonRestClient pokemonRestClient;

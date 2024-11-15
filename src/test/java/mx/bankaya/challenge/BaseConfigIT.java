@@ -1,6 +1,5 @@
-package mx.bankaya.challenge.pokemon;
+package mx.bankaya.challenge;
 
-import mx.bankaya.challenge.BankayaChallengeApplication;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.ActiveProfiles;
 
