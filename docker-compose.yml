@@ -14,6 +14,9 @@ services:
       - postgres_data:/var/lib/postgresql/data
 
   pokemon-service:
+    build:
+      context: .
+      dockerfile: Dockerfile
     image: bankaya-challenge-service
     ports:
       - "8080:8080"
@@ -23,6 +26,7 @@ services:
       SPRING_DATASOURCE_PASSWORD: password123
     depends_on:
       - postgres
+    restart: always
 
 volumes:
   postgres_data:
